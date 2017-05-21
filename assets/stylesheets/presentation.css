@@ -1,0 +1,228 @@
+section.slide:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/**** Parte dipendente dal tema ****/
+
+section.slide:before {
+    content: "";
+    display: block;
+    border: 1px solid #ccc;
+    position: absolute;
+    width: 100%;
+    top: -8px;
+    left: -3px;
+}
+
+section.beige {
+    background: #f7f2d3;
+    background: -moz-radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(100%, #f7f2d3));
+    background: -webkit-radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
+    background: -o-radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
+    background: -ms-radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
+    background: radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
+    background-color: #f7f3de; 
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
+    color: #333;
+}
+
+section.beige h2,
+section.beige h3 {
+    color: #333;
+}
+
+section.black {
+    background: #222;
+    background-color: #222;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: normal;
+    color: #fff;
+}
+
+section.black h2,
+section.black h3 {
+    color: #fff;
+}
+
+section.blood {
+    background: #222;
+    background-color: #222; 
+    font-family: Ubuntu, "sans-serif";
+    font-weight: normal;
+    color: #eee;
+}
+    
+section.blood h2,
+section.blood h3 {
+    color: #eee;
+}
+
+section.league {
+    color: #eee;
+    background: #1c1e20;
+    background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #1c1e20));
+    background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+    background: -o-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+    background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+    background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+    background-color: #2b2b2b; 
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
+    color: #eee;
+}
+
+section.league h2,
+section.league h3 {
+    color: #eee;
+}
+
+section.moon {
+    background: #002b36;
+    background-color: #002b36; 
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
+    color: #93a1a1;
+}
+
+section.moon h2,
+section.moon h3 {
+    color: #93a1a1;
+}
+
+section.night {
+    background: #111;
+    background-color: #111; 
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    color: #eee;
+}
+
+section.night h2,
+section.night h3 {
+    color: #eee;
+}
+
+section.serif {
+    background: #F0F1EB;
+    background-color: #F0F1EB;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif;
+    font-weight: normal;
+    color: #000;
+}
+
+section.serif h2,
+section.serif h3 {
+    color: #000;
+}
+
+section.simple {
+    background: #fff;
+    background-color: #fff;
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
+    color: #000;
+}
+
+section.simple h2,
+section.simple h3 {
+    color: #000;
+}
+
+section.sky {
+    background: #add9e4;
+    background: -moz-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f7fbfc), color-stop(100%, #add9e4));
+    background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+    background: -o-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+    background: -ms-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+    background: radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+    background-color: #f7fbfc;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    color: #333;
+}
+
+section.sky h2,
+section.sky h3 {
+    color: #333;
+}
+
+section.solarized {
+    background: #fdf6e3;
+    background-color: #fdf6e3;
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
+    color: #657b83;
+}
+
+section.solarized h2,
+section.solarized h3 {
+    color: #657b83;
+}
+
+section.white {
+    background: #fff;
+    background-color: #fff;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: normal;
+    color: #222;
+}
+    
+section.white h2,
+section.white h3 {
+    margin: 0 0 20px 0;
+    color: #222;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+}
+
+/**** Parte comune ****/
+
+section.slide, section.subslide {
+    border: 1px solid #5c6f92;
+    box-shadow: 8px 8px 10px #666;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 440px;
+    max-height: 310px;
+    position: relative;
+    overflow-y: hidden;
+}
+
+section.slide h2:hover > a.wiki-anchor,
+section.slide h3:hover > a.wiki-anchor,
+section.subslide h2:hover > a.wiki-anchor,
+section.subslide h3:hover > a.wiki-anchor {
+    display: none !important;
+}
+
+section.slide > table, section.slide > table td,
+section.subslide > table, section.subslide > table td {
+    border: none;
+}
+
+section.slide > table td,
+section.subslide > table td{
+    vertical-align: top
+}
+
+section.slide > table td > img, 
+section.subslide > table td > img {
+    width: 100%
+}
+
+section.slide code {
+    font-size: 100%
+}
