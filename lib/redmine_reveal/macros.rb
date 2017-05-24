@@ -217,8 +217,15 @@ def getTransition(obj, value)
 end
 
 def getTransition1(obj, value)
-    default = obj.slide_options.transition
+#     default = obj.slide_options.transition
     
+    check_transition value, obj.slide_options.transition
+#     return default if value.blank?
+#     return value   if ['none','fade','slide','convex','concave','zoom'].include? value
+#     default
+end
+
+def check_transition(value, default)
     return default if value.blank?
     return value   if ['none','fade','slide','convex','concave','zoom'].include? value
     default
@@ -263,7 +270,8 @@ def getBackgroundImage(obj, value)
     return value   if value =~ /^https?:/
     
     attachment = obj.attachments.find_by_filename value
-    download_named_attachment_url(attachment, attachment.filename)
+    download_named_attachment_url(attachment, attachment.filename) #unless attachment.nil?
+    #default
 end
 
 def getBackgroundSize(obj, value)
@@ -291,9 +299,5 @@ def getBackgroundRepeat(obj, value)
 end
 
 def getBackgroundTransition(obj, value)
-    default = obj.slide_options.background_transition
-    
-    return default if value.blank?
-    
-    value
+    check_transition value, obj.slide_options.background_transition
 end

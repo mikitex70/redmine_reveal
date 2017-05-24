@@ -1,3 +1,15 @@
+.jstb_slide{
+    background-image: url(../images/slide.png);
+}
+
+.jstb_subSlide{
+    background-image: url(../images/subslide.png);
+}
+
+.jstb_slideSetup{
+    background-image: url(../images/slidesetup.png);
+}
+
 section.slide:empty {
     display: none;
     margin: 0;

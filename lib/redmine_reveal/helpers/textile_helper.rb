@@ -6,7 +6,9 @@ module Redmine::WikiFormatting::Textile::Helper
         heads_for_wiki_formatter_without_slide
         unless @heads_for_wiki_formatter_with_slide_included
             content_for :header_tags do
-                javascript_include_tag('jstoolbar', :plugin => 'redmine_reveal')
+                #stylesheet_link_tag 'drawioEditor.css', :plugin => 'redmine_reveal', :media => 'screen'
+                #javascript_include_tag 'spectrum', :plugin => 'redmine_reveal'
+                javascript_include_tag 'reveal_jstoolbar', :plugin => 'redmine_reveal'
             end
             @heads_for_wiki_formatter_with_slide_included = true
         end
