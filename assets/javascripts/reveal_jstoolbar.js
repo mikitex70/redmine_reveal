@@ -1,6 +1,4 @@
 $(function () {
-    //$('html head').append('<style>.jstb_slide{ background-image: url(/images/duplicate.png); }</style>');
-    
   if(typeof jsToolBar === 'undefined') return false;
   
   // The macro dialog
@@ -15,6 +13,14 @@ $(function () {
           else
               $("#dlg_redmine_slide .reveal_setup").hide();
           
+          // Pre-set default values
+          $("#dlg_redmine_slide input,#dlg_redmine_slide select").each(function() {
+              if(this.id.toString().match(/_color$/))
+                  $(this).spectrum('set', null);
+              
+              $(this).val($(this).data("default") || '');
+          });
+
           var params = dlg.data("params");
           
           if(params)
@@ -22,34 +28,21 @@ $(function () {
                 $("#reveal_"+key).val(params[key]);
             }
       },
-      close: function() {
-          // Clear input on close
-          $("#dlg_redmine_slide input,#dlg_redmine_slide select").val('');
-      },
       buttons : {
           "Insert macro": function() { 
-              var editor                = dlg.data("editor");
-              var macroName             = dlg.data("macro");
-              var transition            = $("#reveal_transition").val();
-              var speed                 = $("#reveal_speed").val();
-              var background_color      = $("#reveal_background_color").val();
-              var background_image      = $("#reveal_background_image").val();
-              var background_transition = $("#reveal_background_transition").val();
-              var options = [];
-
-              if(macroName === "slideSetup") {
-                  var theme      = $("#reveal_theme").val();
-                  var code_style = $("#reveal_code_style").val();
+              var editor    = dlg.data("editor");
+              var macroName = dlg.data("macro");
+              // Extract field values as macro options
+              var options   = $("[id^='reveal_']:visible").map(function() {
+                  var optName = this.id.toString().substring("reveal_".length);
+                  var value   = $(this).val();
                   
-                  if(theme             != "") options.push("theme="+theme);
-                  if(code_style        != "") options.push("code_style="+code_style);
-              }
-              if(transition            != "") options.push("transition="+transition);
-              if(speed                 != "") options.push("speed="+speed);
-              if(background_color      != "") options.push("background_color="+background_color);
-              if(background_image      != "") options.push("background_image="+background_image);
-              if(background_transition != "") options.push("background_transition="+background_transition);
-
+                  if(value != "" && value != $(this).data("default"))
+                      return optName+"="+value;
+                  
+                  return null;
+              }).get();
+              
               if(options.length)
                   options = '('+options.join(',')+')';
               else
