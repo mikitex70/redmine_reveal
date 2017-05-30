@@ -176,15 +176,15 @@ def slide_options(obj, options)
     background_repeat     = getBackgroundRepeat(obj, options[:background_repeat])
     background_transition = getBackgroundTransition(obj, options[:background_transition])
     
-    opts = "data-transition=\"#{transition}\" data-transition-speed=\"#{speed}\""
-    opts += "data-background-color=\"#{background_color}\"" unless background_color.blank?
+    opts  = "data-transition=\"#{transition}\" data-transition-speed=\"#{speed}\""
+    opts += " data-background-color=\"#{background_color}\"" unless background_color.blank?
     
     unless background_image.blank?
-        opts += "data-background-image=\"#{background_image}\""
-        opts += "data-background-size=\"#{background_size}\""             unless background_size.blank?
-        opts += "data-background-position=\"#{background_position}\""     unless background_position.blank?
-        opts += "data-background-repeat=\"#{background_repeat}\""         unless background_repeat.blank?
-        opts += "data-background-transition=\"#{background_transition}\"" unless background_transition.blank?
+        opts += " data-background-image=\"#{background_image}\""
+        opts += " data-background-size=\"#{background_size}\""             unless background_size.blank?
+        opts += " data-background-position=\"#{background_position}\""     unless background_position.blank?
+        opts += " data-background-repeat=\"#{background_repeat}\""         unless background_repeat.blank?
+        opts += " data-background-transition=\"#{background_transition}\"" unless background_transition.blank?
     end
     
     opts

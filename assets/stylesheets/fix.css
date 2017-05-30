@@ -187,3 +187,7 @@ section.subslide > table td > img {
 section.slide code {
     font-size: 100% !important;
 }
+
+section span.fragment {
+    display: inline-block;
+}
