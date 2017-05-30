@@ -29,6 +29,8 @@ module PresentationWikiContentPatch
                 @background_position   = 'center'
                 @background_repeat     = 'no-repeat'
                 @background_transition = ''
+                @parallax_image        = ''
+                @parallax_image_size   = ''
             end
         end
     end

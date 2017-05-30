@@ -15,7 +15,7 @@ speed=default   : transition effect speed (slow, default fast)
 EOF
     macro :slideSetup do |obj, args|
         args, options = extract_macro_options(args, :transition, :speed, :theme, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition,
-        :code_style)
+        :code_style, :parallax_image, :parallax_image_size)
         
         obj.slide_options.theme                 = getTheme(obj, options[:theme])
         obj.slide_options.code_style            = getCodeStyle(obj, options[:code_style])
@@ -26,7 +26,9 @@ EOF
         obj.slide_options.background_size       = getBackgroundSize(obj, options[:background_size])
         obj.slide_options.background_position   = getBackgroundPosition(obj, options[:background_position])
         obj.slide_options.background_repeat     = getBackgroundRepeat(obj, options[:background_repeat])
-        obj.slide_options.background_transition = getBackgroundTransition(obj ,options[:background_transition])
+        obj.slide_options.background_transition = getBackgroundTransition(obj, options[:background_transition])
+        obj.slide_options.parallax_image        = getParallaxImage(obj, options[:parallax_image])
+        obj.slide_options.parallax_image_size   = getParallaxImageSize(obj, options[:parallax_image])
         
         ""
     end
@@ -300,4 +302,20 @@ end
 
 def getBackgroundTransition(obj, value)
     check_transition value, obj.slide_options.background_transition
+end
+
+def getParallaxImage(obj, value)
+    default = obj.slide_options.parallax_image
+    
+    return default if value.blank?
+    
+    value
+end
+
+def getParallaxImageSize(obj, value)
+    default = obj.slide_options.parallax_image_size
+    
+    return default if value.blank?
+    
+    value
 end
