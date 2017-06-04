@@ -8,10 +8,19 @@ Configure default values for slide shows. Example usage:
 {{slideSetup([...options...])}}
 
 options:
-theme=league    : default theme (beige, black, blood, league, moon, night, serif, simple, sky, solarized, white)
-transition=slide: slide transition (none, fade, slide, convex, concave, zoom)
-use two transitions to indicate different in and out effects, like transition=zoom slide
-speed=default   : transition effect speed (slow, default fast)
+theme=league               : default theme (beige, black, blood, league, moon, night, serif, simple, sky, solarized, white)
+code_style=default         : default schema color for code highlight; see https://highlightjs.org for the complete list
+transition=slide           : slide transition (none, fade, slide, convex, concave, zoom)
+                             use two transitions to indicate different in and out effects, like transition=zoom slide
+speed=default              : transition effect speed (slow, default fast)
+background_color           : background color of slides, in HTML format (#rrggbb where r, g and b are hex digits)
+background_image           : background image for the slide
+background_size=cover      :
+background_position=center :
+background_repeat=no-repeat:
+background_transition      :
+parallax_image             :
+parallax_image_size        :
 EOF
     macro :slideSetup do |obj, args|
         args, options = extract_macro_options(args, :transition, :speed, :theme, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition,
@@ -28,7 +37,7 @@ EOF
         obj.slide_options.background_repeat     = getBackgroundRepeat(obj, options[:background_repeat])
         obj.slide_options.background_transition = getBackgroundTransition(obj, options[:background_transition])
         obj.slide_options.parallax_image        = getParallaxImage(obj, options[:parallax_image])
-        obj.slide_options.parallax_image_size   = getParallaxImageSize(obj, options[:parallax_image])
+        obj.slide_options.parallax_image_size   = getParallaxImageSize(obj, options[:parallax_image_size])
         
         ""
     end
@@ -45,9 +54,15 @@ h2. My title
 }}
 
 options:
-transition=slide: slide transition (none, fade, slide, convex, concave, zoom)
-use two transitions to indicate different in and out effects, like transition=zoom slide
-speed=default   : transition effect speed (slow, default fast)
+transition=slide           : slide transition (none, fade, slide, convex, concave, zoom)
+                             use two transitions to indicate different in and out effects, like transition=zoom slide
+speed=default              : transition effect speed (slow, default fast)
+background_color           : background color of slides, in HTML format (#rrggbb where r, g and b are hex digits)
+background_image           : background image for the slide
+background_size=cover      :
+background_position=center :
+background_repeat=no-repeat:
+background_transition      :
 
 After using this macro you will see a link named "Presentation" in the wiki action bar.
 
@@ -82,9 +97,15 @@ This is slide 1.2
 }}
 
 options:
-transition=slide: slide transition (none, fade, slide, convex, concave, zoom)
-use two transitions to indicate different in and out effects, like transition=zoom slide
-speed=default   : transition effect speed (slow, default fast)
+transition=slide           : slide transition (none, fade, slide, convex, concave, zoom)
+                             use two transitions to indicate different in and out effects, like transition=zoom slide
+speed=default              : transition effect speed (slow, default fast)
+background_color           : background color of slides, in HTML format (#rrggbb where r, g and b are hex digits)
+background_image           : background image for the slide
+background_size=cover      :
+background_position=center :
+background_repeat=no-repeat:
+background_transition      :
 
 In the body of the slide can be used other macros, but they must be closed with }\}. For example:
 
@@ -272,8 +293,9 @@ def getBackgroundImage(obj, value)
     return value   if value =~ /^https?:/
     
     attachment = obj.attachments.find_by_filename value
-    download_named_attachment_url(attachment, attachment.filename) #unless attachment.nil?
-    #default
+    
+    return default if attachment.nil?
+    download_named_attachment_url(attachment, attachment.filename)
 end
 
 def getBackgroundSize(obj, value)
@@ -308,8 +330,12 @@ def getParallaxImage(obj, value)
     default = obj.slide_options.parallax_image
     
     return default if value.blank?
+    return value   if value =~ /^https?:/
+
+    attachment = obj.attachments.find_by_filename value
     
-    value
+    return default if attachment.nil?
+    download_named_attachment_url(attachment, attachment.filename)
 end
 
 def getParallaxImageSize(obj, value)

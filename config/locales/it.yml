@@ -1,3 +1,23 @@
 # Italian strings go here for Rails i18n
-en:
-  # my_label: "My label"
+it:
+    reveal_dlg_grp_global        : "Impostazioni globale"
+    reveal_dlg_grp_general       : "Generale"
+    reveal_dlg_theme             : "Tema"
+    reveal_dlg_codestyle         : "Stile sintassi codice"
+    reveal_dlg_transition        : "Effetto di transizione"
+    reveal_dlg_speed             : "Velocità di transizione"
+    reveal_dlg_grp_background    : "Sfondo slide"
+    reveal_dlg_backcolor         : "Colore"
+    reveal_dlg_backimage         : "Immagine"
+    reveal_dlg_backtransition    : "Transizione"
+    reveal_dlg_grp_parallax      : "Sfondo parallasse"
+    reveal_dlg_parallax_backimage: "Immagine"
+    reveal_dlg_parallax_imgwidth : "Larghezza"
+    reveal_dlg_parallax_imgheight: "Altezza"
+    reveal_dlg_transition_none   : "none"
+    reveal_dlg_transition_fade   : "fade"
+    reveal_dlg_transition_slide  : "slide"
+    reveal_dlg_transition_convex : "convex"
+    reveal_dlg_transition_concave: "concave"
+    reveal_dlg_transition_zoom   : "zoom"
+    

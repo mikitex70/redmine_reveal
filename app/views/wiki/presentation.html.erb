@@ -14,7 +14,7 @@
 
     <%= stylesheet_link_tag "reveal.css",       :media => "all", :plugin => "redmine_reveal" %>
     <%= stylesheet_link_tag "theme/#{@content.slide_options.theme}.css", :media => "all", :plugin => "redmine_reveal", :id => "theme" %>
-    <%= stylesheet_link_tag "fix.css",          :media => "all", :plugin => "redmine_reveal" %>
+    <%= stylesheet_link_tag "reveal_fix.css",   :media => "all", :plugin => "redmine_reveal" %>
     
     <%= stylesheet_link_tag "highlight-styles/#{@content.slide_options.code_style}.css", :media => "all", :plugin => "redmine_reveal" %>
     <%= javascript_include_tag "jquery-2.2.4.min.js", :plugin => "redmine_reveal" %>
@@ -22,7 +22,6 @@
   <body>
     <div class="reveal">
         <div class="slides">
-        <!--%= textilizable @content, :text, :attachments => @content.page.attachments  %-->
         <%= slides %>
         </div>
     </div>
@@ -32,9 +31,6 @@
     <%= javascript_include_tag "reveal.js"      , :plugin => "redmine_reveal" %>
 
     <script>
-//         $("ul.fragment").each(function() {
-//             $(this).removeClass("fragment").find("> li").addClass("fragment");
-//         });
         // More info https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize({
                 controls      : true,
