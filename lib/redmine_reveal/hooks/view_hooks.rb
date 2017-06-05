@@ -39,8 +39,7 @@ class PresentationViewListener < Redmine::Hook::ViewListener
     end
     
     def has_slides?(context)
-#         Rails.logger.error("======> page: #{context[:page].methods}")
-        true #context[:page] #&& context[:page]
+        true 
     end
 end
 

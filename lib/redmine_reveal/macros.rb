@@ -23,6 +23,9 @@ parallax_image             :
 parallax_image_size        :
 EOF
     macro :slideSetup do |obj, args|
+        return "«Please save content first»" unless obj
+        return "" unless obj.is_a?(WikiContent)
+        
         args, options = extract_macro_options(args, :transition, :speed, :theme, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition,
         :code_style, :parallax_image, :parallax_image_size)
         
@@ -74,6 +77,9 @@ In the body of the slide can be used other macros, but they must be closed with 
 }}
 EOF
     macro :slide do |obj, args, text|
+        return "«Please save content first»" unless obj
+        return "" unless obj.is_a?(WikiContent)
+        
         args, options = extract_macro_options(args, :transition, :speed, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition)
         
         "<section class='slide #{obj.slide_options.theme}' #{section_opts(obj, options)}>".html_safe +
@@ -115,6 +121,9 @@ In the body of the slide can be used other macros, but they must be closed with 
 }}
 EOF
     macro :subslide do |obj, args, text|
+        return "«Please save content first»" unless obj
+        return "" unless obj.is_a?(WikiContent)
+        
         args, options = extract_macro_options(args, :transition, :speed, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition)
         
         "<section class='subslide #{obj.slide_options.theme}' #{section_opts(obj, options)}>".html_safe +
@@ -134,6 +143,9 @@ This is a note for the speaker.
 }}
 EOF
     macro :speakerNote do |obj, args, text|
+        return "«Please save content first»" unless obj
+        return "" unless obj.is_a?(WikiContent)
+        
         opts = ""
         
         "<aside class='notes #{obj.slide_options.theme}' #{opts}>".html_safe +
@@ -164,6 +176,8 @@ Usefull to include piece of code. Example usage:
 {{insert_attch(attach_name.ext)}}
 EOF
     macro :insert_attach do |obj, args|
+        return "«Please save content first»" unless obj
+
         args, options = extract_macro_options(args)
         filename = args.first
         
