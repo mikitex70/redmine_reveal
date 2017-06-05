@@ -117,6 +117,12 @@ RMReveal.strings = {};
                 return null;
             }).get();
             
+            var width  = $("#reveal_parallax_image_width").val(),
+                height = $("#reveal_parallax_image_height").val();
+                
+            if(width != "" && height != "")
+                options.push("parallax_image_size="+width+"px "+height+"px");
+            
             if(options.length)
                 options = '('+options.join(',')+')';
             else
@@ -161,10 +167,15 @@ RMReveal.strings = {};
                 
                 var params = dlg.data("params");
                 
-                if(params)
+                if(params) {
                     for(key in params) {
                         $("#reveal_"+key).val(params[key]);
                     }
+                    
+                    var m = /(\d+)px (\d+)px/.exec(params["parallax_image_size"]);
+                    $("#reveal_parallax_image_width").val(m[1]);
+                    $("#reveal_parallax_image_height").val(m[2]);
+                }
             },
             buttons: dlgButtons
         });
