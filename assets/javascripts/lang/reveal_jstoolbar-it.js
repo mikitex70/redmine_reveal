@@ -4,5 +4,6 @@ RMReveal.strings['reveal_slide_btntitle'     ] = 'Aggiunge una nuova slide';
 RMReveal.strings['reveal_slide_dlgtitle'     ] = 'Caratteristiche della slide';
 RMReveal.strings['reveal_subslide_btntitle'  ] = 'Aggiunge una nuova slide secondaria';
 RMReveal.strings['reveal_subslide_dlgtitle'  ] = 'Caratteristiche della slide secondaria';
-RMReveal.strings['reveal_slidesetup_btntitle'] = 'Configurazione globale presentazione';
+RMReveal.strings['reveal_slidesetup_btntitle'] = 'Configurazione globale della presentazione';
 RMReveal.strings['reveal_slidesetup_dlgtitle'] = 'Impostazioni globali presentazione';
+RMReveal.strings['reveal_backsize_validation'] = "Indica un numero con suffisso 'px', 'mm', 'cm' o 'in', oppure uno tra 'auto', 'cover', 'contain'"

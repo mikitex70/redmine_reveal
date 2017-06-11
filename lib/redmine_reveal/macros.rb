@@ -15,12 +15,12 @@ transition=slide           : slide transition (none, fade, slide, convex, concav
 speed=default              : transition effect speed (slow, default fast)
 background_color           : background color of slides, in HTML format (#rrggbb where r, g and b are hex digits)
 background_image           : background image for the slide
-background_size=cover      :
+background_size=cover      : background image size; length, percentage or one of cover, contain, auto
 background_position=center :
-background_repeat=no-repeat:
-background_transition      :
-parallax_image             :
-parallax_image_size        :
+background_repeat=no-repeat: background image repetition (no-repeat, repeat-x, repeat-y, repeat)
+background_transition      : background transition (none, fade, slide, convex, concave, zoom)
+parallax_image             : image for the background parallax effect (attachment or url)
+parallax_image_size        : parallax image size, in the format "WIDTHpx HEIGHTpx"; mandatory if parallax_image is present
 EOF
     macro :slideSetup do |obj, args|
         return "«Please save content first»" unless obj
@@ -62,10 +62,10 @@ transition=slide           : slide transition (none, fade, slide, convex, concav
 speed=default              : transition effect speed (slow, default fast)
 background_color           : background color of slides, in HTML format (#rrggbb where r, g and b are hex digits)
 background_image           : background image for the slide
-background_size=cover      :
+background_size=cover      : background image size; length, percentage or one of cover, contain, auto
 background_position=center :
-background_repeat=no-repeat:
-background_transition      :
+background_repeat=no-repeat: background image repetition (no-repeat, repeat-x, repeat-y, repeat)
+background_transition      : background transition (none, fade, slide, convex, concave, zoom)
 
 After using this macro you will see a link named "Presentation" in the wiki action bar.
 
@@ -108,10 +108,10 @@ transition=slide           : slide transition (none, fade, slide, convex, concav
 speed=default              : transition effect speed (slow, default fast)
 background_color           : background color of slides, in HTML format (#rrggbb where r, g and b are hex digits)
 background_image           : background image for the slide
-background_size=cover      :
+background_size=cover      : background image size; length, percentage or one of cover, contain, auto
 background_position=center :
-background_repeat=no-repeat:
-background_transition      :
+background_repeat=no-repeat: background image repetition (no-repeat, repeat-x, repeat-y, repeat)
+background_transition      : background transition (none, fade, slide, convex, concave, zoom)
 
 In the body of the slide can be used other macros, but they must be closed with }\}. For example:
 

@@ -1,7 +1,12 @@
 <div id="dlg_redmine_slide" style="display:none">
   <form id="reveal_form">
-    <fieldset class="reveal_setup" style="display:none">
-      <legend><%= l(:reveal_dlg_grp_global) %></legend>
+    <ul>
+      <li><a href="#reveal_tab_global" class="reveal_setup"><%= l(:reveal_dlg_grp_global) %></a></li>
+      <li><a href="#reveal_tab_general"><%= l(:reveal_dlg_grp_general) %></a></li>
+      <li><a href="#reveal_tab_background"><%= l(:reveal_dlg_grp_background) %></a></li>
+      <li><a href="#reveal_tab_parallax" class="reveal_setup"><%= l(:reveal_dlg_grp_parallax) %></a></li>
+    </ul>
+    <fieldset id="reveal_tab_global">
       <div class="tabular">
         <p>
           <label for="reveal_theme"><%= l(:reveal_dlg_theme) %></label>
@@ -9,7 +14,7 @@
             <option value="beige">beige</option>
             <option value="black">black</option>
             <option value="blood">blood</option>
-            <option value="league" selected="selected">league</option>
+            <option value="league">league</option>
             <option value="moon">moon</option>
             <option value="night">night</option>
             <option value="serif">serif</option>
@@ -28,7 +33,7 @@
             <option value="atom-one-dark">Atom one dark</option>
             <option value="atom-one-light">Atom one light</option>
             <option value="dark">Dark</option>
-            <option value="default" selected="true">Default</option>
+            <option value="default">Default</option>
             <option value="foundation">Foundation</option>
             <option value="github-gist">GitHub Gist</option>
             <option value="google-code">Google code</option>
@@ -51,15 +56,14 @@
         </p>
       </div>
     </fieldset>
-    <fieldset>
-      <legend><%= l(:reveal_dlg_grp_general) %></legend>
+    <fieldset id="reveal_tab_general">
       <div class="tabular">
         <p>
           <label for="reveal_transition"><%= l(:reveal_dlg_transition) %></label>
           <select name="reveal_transition" id="reveal_transition" data-default="slide">
             <option value="none"><%= l(:reveal_dlg_transition_none) %></option>
             <option value="fade"><%= l(:reveal_dlg_transition_fade) %></option>
-            <option value="slide" selected="selected"><%= l(:reveal_dlg_transition_slide) %></option>
+            <option value="slide"><%= l(:reveal_dlg_transition_slide) %></option>
             <option value="convex"><%= l(:reveal_dlg_transition_convex) %></option>
             <option value="concave"><%= l(:reveal_dlg_transition_concave) %></option>
             <option value="zoom"><%= l(:reveal_dlg_transition_zoom) %></option>
@@ -69,14 +73,13 @@
           <label for="reveal_speed"><%= l(:reveal_dlg_speed) %></label>
           <select name="reveal_speed" id="reveal_speed" data-default="default">
             <option value="slow">slow</option>
-            <option value="default" selected="selected">default</option>
+            <option value="default">default</option>
             <option value="fast">fast</option>
           </select>
         </p>
       </div>
     </fieldset>
-    <fieldset>
-      <legend><%= l(:reveal_dlg_grp_background) %></legend>
+    <fieldset id="reveal_tab_background">
       <div class="tabular">
         <p>
           <label for="reveal_background_color"><%= l(:reveal_dlg_backcolor) %></label>
@@ -87,10 +90,27 @@
           <input type="text" name="reveal_background_image" id="reveal_background_image" size="32"/>
         </p>
         <p>
+          <label for="reveal_background_size"><%= l(:reveal_dlg_backimage_size) %></label>
+          <input type="text" name="reveal_background_size" id="reveal_background_size" data-default="cover" size="10" maxlength="10" data-requires="reveal_background_image"/>
+        </p>
+        <p>
+          <label for="reveal_background_repeat"><%= l(:reveal_dlg_backimage_repeat) %></label>
+          <select name="reveal_background_repeat" id="reveal_background_repeat" data-default="no-repeat" data-requires="reveal_background_image">
+            <option value="no-repeat">no-repeat</option>
+            <option value="repeat-x">repeat-x</option>
+            <option value="repeat-y">repeat-y</option>
+            <option value="repeat">repeat</option>
+          </select>
+        </p>
+        <p>
+          <label for="reveal_background_position"><%= l(:reveal_dlg_backimage_position) %></label>
+          <input type="text" name="reveal_background_position" id="reveal_background_position" data-default="center" data-requires="reveal_background_image"/>
+        </p>
+        <p>
           <label for="reveal_background_transition"><%= l(:reveal_dlg_backtransition) %></label>
-          <select name="reveal_background_transition" id="reveal_background_transition" data-default="fade">
+          <select name="reveal_background_transition" id="reveal_background_transition" data-default="fade" data-requires="reveal_background_image">
             <option value="none"><%= l(:reveal_dlg_transition_none) %></option>
-            <option value="fade" selected="selected"><%= l(:reveal_dlg_transition_fade) %></option>
+            <option value="fade"><%= l(:reveal_dlg_transition_fade) %></option>
             <option value="slide"><%= l(:reveal_dlg_transition_slide) %></option>
             <option value="convex"><%= l(:reveal_dlg_transition_convex) %></option>
             <option value="concave"><%= l(:reveal_dlg_transition_concave) %></option>
@@ -99,8 +119,7 @@
         </p>
       </div>
     </fieldset>
-    <fieldset class="reveal_setup" style="display:none">
-      <legend><%= l(:reveal_dlg_grp_parallax) %></legend>
+    <fieldset id="reveal_tab_parallax">
       <div class="tabular">
         <p>
           <label for="reveal_parallax_image"><%= l(:reveal_dlg_parallax_backimage) %></label>
@@ -108,11 +127,12 @@
         </p>
         <p>
           <label for="reveal_parallax_image_width"><%= l(:reveal_dlg_parallax_imgwidth) %></label>
-          <input type="text" class="noparam digits" name="reveal_parallax_image_width" id="reveal_parallax_image_width" class="digits" size="5" disabled="disabled"/>
+          <input type="text" class="noparam digits" name="reveal_parallax_image_width" id="reveal_parallax_image_width" class="digits" size="5" data-requires="reveal_parallax_image"/>
           <label for="reveal_parallax_image_height" class="inline"><%= l(:reveal_dlg_parallax_imgheight) %></label>
-          <input type="text" class="noparam digits" name="reveal_parallax_image_height" id="reveal_parallax_image_height" class="digits" size="5" disabled="disabled"/>
+          <input type="text" class="noparam digits" name="reveal_parallax_image_height" id="reveal_parallax_image_height" class="digits" size="5" data-requires="reveal_parallax_image"/>
         </p>
       </div>
     </fieldset>
+    <div id="reveal_validate_msg" class="alert-box"></div>
   </form>
 </div>
