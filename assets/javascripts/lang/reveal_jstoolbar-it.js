@@ -6,4 +6,5 @@ RMReveal.strings['reveal_subslide_btntitle'  ] = 'Aggiunge una nuova slide secon
 RMReveal.strings['reveal_subslide_dlgtitle'  ] = 'Caratteristiche della slide secondaria';
 RMReveal.strings['reveal_slidesetup_btntitle'] = 'Configurazione globale della presentazione';
 RMReveal.strings['reveal_slidesetup_dlgtitle'] = 'Impostazioni globali presentazione';
+RMReveal.strings['reveal_fragment_btntitle'  ] = 'Applica un\'effetto al testo';
 RMReveal.strings['reveal_backsize_validation'] = "Indica un numero con suffisso 'px', 'mm', 'cm' o 'in', oppure uno tra 'auto', 'cover', 'contain'"

@@ -7,7 +7,7 @@ Redmine::Plugin.register :redmine_reveal do
   url 'https://github.com/mikitex70/redmine_reveal'
   author_url 'https://github.com/mikitex70'
   
-  requires_redmine version: '3.0'..'3.3'
+  requires_redmine version: '3.0'..'3.4'
   
   should_be_disabled false if Redmine::Plugin.installed?(:easy_extensions)
 end

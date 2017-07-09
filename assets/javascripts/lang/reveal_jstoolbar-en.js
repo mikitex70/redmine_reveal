@@ -6,4 +6,5 @@ RMReveal.strings['reveal_subslide_btntitle'  ] = 'Sub slide';
 RMReveal.strings['reveal_subslide_dlgtitle'  ] = 'Subslide settings';
 RMReveal.strings['reveal_slidesetup_btntitle'] = 'Presentation setup';
 RMReveal.strings['reveal_slidesetup_dlgtitle'] = 'Global presentation settings';
+RMReveal.strings['reveal_fragment_btntitle'  ] = 'Apply animation effect to text';
 RMReveal.strings['reveal_backsize_validation'] = "Specify a number with suffix 'px', 'mm', 'cm' or 'in', or one of  'auto', 'cover', 'contain'"

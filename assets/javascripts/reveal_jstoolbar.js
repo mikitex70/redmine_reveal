@@ -91,12 +91,65 @@ RMReveal.strings = {};
                 
                 return params;
             }
-//             else
-//                 return false;
         }
-//         else {
-//             console.debug("No macro found")
-//         }
+        
+        return null;
+    }
+    
+    function isFragmentStart(text, pos) {
+        return text.substring(pos).match(/^([p%])(\{.*?\})?(\(.*?\))?/);
+    }
+    
+    function findFragment(editor) {
+        var text = $(editor.textarea).val();
+        var caretPos = $(editor.textarea).prop("selectionStart");
+        var match = null;
+        // Move left to find macro start; the test on }} is needed for not go too much ahead
+        while(caretPos > 1) {
+            match = isFragmentStart(text, caretPos);
+            
+            if(match)
+                break;
+            
+            caretPos--;
+        }
+        
+        if(match) {
+            var cmd = match[1];
+            var styles = match[2];
+            var classes = match[3];
+            var result = {
+                cmd    : cmd,
+                classes: classes,
+                styles : styles
+            };
+            
+            if(classes && classes.indexOf("fragment ") > 0) {
+                // parsing classes
+                var m = classes.match(/ highlight-(current-)?(red|green|blue)/);
+                
+                if(m) {
+                    result.highlight_color = m[2];
+                    result.highlight_current = (m[1]? 'current-': '');
+                }
+                
+                m = classes.match(/ fade-(in|out|top|bottom|left|right)/);
+                
+                if(m) {
+                    result.fragment_fade = m[1];
+                }
+                
+                result.fragmen_grow     = (classes.indexOf(" grow") > 0);
+                result.fragment_shrink  = (classes.indexOf(' shrink') > 0);
+                result.fragment_visible = (classes.indexOf(' current-visible') > 0);
+            }
+            
+            if(styles) {
+                // parsing styles
+            }
+            
+            return result;
+        }
         
         return null;
     }
@@ -182,8 +235,12 @@ RMReveal.strings = {};
                 var params = dlg.data("params");
                 
                 if(params) {
-                    for(key in params)
-                        $("#reveal_"+key).val(params[key]);
+                    for(key in params) {
+                        if($("#reveal_"+key).attr('type') === 'checkbox')
+                            $("#reveal_"+key).prop('checked', params[key]);
+                        else
+                            $("#reveal_"+key).val(params[key]);
+                    }
                     
                     var m = /(\d+)px (\d+)px/.exec(params["parallax_image_size"]);
                     
@@ -294,7 +351,7 @@ RMReveal.strings = {};
                        .dialog("open");
                 }
             }
-        }
+        };
         
         jsToolBar.prototype.elements.subSlide = {
             type : 'button',
@@ -310,7 +367,21 @@ RMReveal.strings = {};
                        .dialog("open");
                 }
             }
-        }
+        };
+        
+        /*jsToolBar.prototype.elements.fragment = {
+            type : 'button',
+            title: RMReveal.strings['reveal_fragment_btntitle'],
+            fn   : {
+                wiki: function() {
+                    var params = findFragment(this);
+                    
+                    dlg.data("editor", this)
+                       .data("params", params)
+                       .dialog("open");
+                }
+            }
+        };*/
       
         jsToolBar.prototype.elements.slideSetup = {
             type : 'button',
@@ -326,12 +397,12 @@ RMReveal.strings = {};
                        .dialog("open");
                 }
             }
-        }
+        };
       
         // Add space
         jsToolBar.prototype.elements.space_slide = {
             type: 'space'
-        }
+        };
       
         // Move back the help at the end
         var help = jsToolBar.prototype.elements.help;
