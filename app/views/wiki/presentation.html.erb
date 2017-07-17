@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="<%= current_language %>">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title><%= @page.title.titleize %> — <%= @project %></title>
+    <% slides = textilizable @content, :text, :attachments => @content.page.attachments %>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel='shortcut icon' href='/plugin_assets/redmine_presentation/images/favicon.png' />
+
+    <%= stylesheet_link_tag "reveal.css",       :media => "all", :plugin => "redmine_reveal" %>
+    <%= stylesheet_link_tag "theme/#{@content.slide_options.theme}.css", :media => "all", :plugin => "redmine_reveal", :id => "theme" %>
+    <%= stylesheet_link_tag "reveal_fix.css",   :media => "all", :plugin => "redmine_reveal" %>
+    
+    <%= stylesheet_link_tag "highlight-styles/#{@content.slide_options.code_style}.css", :media => "all", :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "jquery-2.2.4.min.js", :plugin => "redmine_reveal" %>
+  </head>
+  <body>
+    <div class="reveal">
+        <div class="slides">
+        <%= slides %>
+        </div>
+    </div>
+
+    <%= javascript_include_tag "fixStructure.js", :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "head.min.js"    , :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "reveal.js"      , :plugin => "redmine_reveal" %>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+                controls      : true,
+                progress      : true,
+                defaultTiming : 120,
+                slideNumber   : true,
+                history       : false,
+                keyboard      : true,
+                overview      : true,
+                center        : true,
+                touch         : true,
+                loop          : false,
+                rtl           : false,
+                shuffle       : false,
+                fragments     : true,
+                embedded      : false,
+                help          : true,
+                showNotes     : false,
+                autoPlayMedia : null,
+                autoSlide     : 0,
+                autoSlideStoppable: true,
+                autoSlideMethod: Reveal.navigateNext,
+                mouseWheel    : false,
+                hideAddressBar: true,
+                previewLinks  : false,
+                previewLinks  : true,
+                transition    : '<%= @content.slide_options.transition %>',
+                transitionSpeed: 'default',
+                backgroundTransition: 'fade',
+                viewDistance  : 3,
+                parallaxBackgroundImage: '<%= @content.slide_options.parallax_image %>', //https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                parallaxBackgroundSize: '<%= @content.slide_options.parallax_image_size %>', //2100px 900px',
+                parallaxBackgroundHorizontal: null,
+                parallaxBackgroundVertical: null,
+                
+//                 width: 960,
+//                 height: 700,
+//                 minScale: 0.2,
+//                 maxScale: 1.5,
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+//                             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+//                             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+//                             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        // Syntax highlight for <code> elements
+                        { src: '<%= "#{ActionController::Base.relative_url_root}/plugin_assets/redmine_reveal/javascripts/highlight.pack.js" %>', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                        // Zoom in and out with Alt+click
+                        { src: '<%= "#{ActionController::Base.relative_url_root}/plugin_assets/redmine_reveal/javascripts/plugin/zoom-js/zoom.js" %>', async: true },
+                        { src: '<%= "#{ActionController::Base.relative_url_root}/plugin_assets/redmine_reveal/javascripts/plugin/notes/notes.js" %>', async: true }
+                ]
+        });
+    </script>
+  </body>
+</html>

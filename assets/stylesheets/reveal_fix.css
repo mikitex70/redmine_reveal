@@ -1,0 +1,193 @@
+.reveal > .slides {
+    font-size: 80%;
+    text-align: left;
+}
+
+.slide > h2,
+.subslide > h2{
+    text-align: center;
+}
+
+/*.slide h1,
+.slide h2,
+.slide h3,
+.slide h4,
+.slide h5,
+.slide ol li:before,
+.slide ul li:before,
+.shower {
+  color: #005386;
+  font-family: "PT Sans" ,sans-serif;
+}
+
+.shower {
+  line-height: 1.6em;
+}
+
+.slide a {
+  color: #73cb12;
+}
+
+.slide table {
+  margin-left: -50px;
+  width: calc(100% + 100px)
+}
+
+.slide table td:first-child {
+  padding-left: 46px;
+}
+
+.slide table td:last-child {
+  padding-right: 46px;
+}
+
+.progress {
+  border-color: #73cb12;
+  border-right-color: transparent;
+}
+
+section.slide::after {
+  background: none;
+  color: rgb(91, 127, 149);
+  left: 0px;
+  bottom: 0px;
+  top: auto;
+  right: auto;
+  height: 50px;
+  padding: 0px;
+  font-size: 70%;
+}
+
+section[id="cover"].slide::after,
+section[id="1"].slide::after {
+  visibility: hidden;
+}*/
+
+.wiki-anchor, .wiki-anchor:hover {
+  display: none;
+}
+
+/*section > p.with-img {
+  max-width: 100%;
+  text-align: left;
+  height: 400px;
+}
+
+section.slide pre code {
+  line-height: 1.3;
+  font-size: 80%;
+}
+
+section > p.with-img > img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+section > h1 {
+  position: absolute;
+  top: 42%;
+  left: 5%;
+  width: 90%;
+  text-align: center;
+  line-height: 1;
+  font-size: 80px;
+  transform: translateY(-50%);
+  color: #585a5e;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px #ddd;
+}
+
+section > h3 {
+  font-weight: bold;
+}
+
+section.slide {
+  padding-top: 50px;
+  background-image: url(../images/background.svg);
+}
+
+section.backcover {
+  padding-top: 50px;
+  background-image: url(../images/backcover.svg);
+}
+
+section[id="cover"].slide,
+section[id="1"].slide {
+  background-image: url(../images/cover.svg);
+}
+
+section[id="cover"].slide h1,
+section[id="1"].slide h1 {
+  position: static;
+  transform: none;
+  font-size: 50px;
+  text-align: left;
+  width: auto;
+  line-height: 1.2em;
+  margin-top: 100px;
+  margin-left: 370px;
+  width: 500px;
+}
+
+section[id="cover"].slide h2,
+section[id="1"].slide h2 {
+  line-height: 1.2em;
+  margin-top: 40px;
+  font-size: 40px;
+  margin-left: 370px;
+  width: 500px;
+  font-weight: normal;
+}*/
+
+/* Hide description in slide mode */
+div.slides > a,
+div.slides > div,
+div.slides > p,
+div.slides > ol,
+div.slides > ul,
+div.slides > h1,
+div.slides > h2,
+div.slides > h3,
+div.slides > h4,
+div.slides > h5,
+div.slides > h6,
+div.slides > hr,
+div.slides > pre,
+div.slides > code,
+div.slides > img,
+div.slides > svg {
+    display: none !important;
+}
+
+div.slides section:before {
+    display: none;
+}
+
+.slide ol li::before, .slide ul li::before,
+.subslide ol li::before, .subslide ul li::before{
+  margin-left: 1em;
+}
+
+section.slide > table, section.slide > table td,
+section.subslide > table, section.subslide > table td{
+    border: none;
+}
+
+section.slide > table td,
+section.subslide > table td{
+    vertical-align: top
+}
+
+section.slide > table td > img,
+section.subslide > table td > img {
+    width: 100%
+}
+
+section.slide code {
+    font-size: 100% !important;
+}
+
+section span.fragment {
+    display: inline-block;
+}

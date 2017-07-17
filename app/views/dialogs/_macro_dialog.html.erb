@@ -1,0 +1,138 @@
+<div id="dlg_redmine_slide" style="display:none">
+  <form id="reveal_form">
+    <ul>
+      <li><a href="#reveal_tab_global" class="reveal_setup"><%= l(:reveal_dlg_grp_global) %></a></li>
+      <li><a href="#reveal_tab_general"><%= l(:reveal_dlg_grp_general) %></a></li>
+      <li><a href="#reveal_tab_background"><%= l(:reveal_dlg_grp_background) %></a></li>
+      <li><a href="#reveal_tab_parallax" class="reveal_setup"><%= l(:reveal_dlg_grp_parallax) %></a></li>
+    </ul>
+    <fieldset id="reveal_tab_global">
+      <div class="tabular">
+        <p>
+          <label for="reveal_theme"><%= l(:reveal_dlg_theme) %></label>
+          <select name="reveal_theme" id="reveal_theme" data-default="league">
+            <option value="beige">beige</option>
+            <option value="black">black</option>
+            <option value="blood">blood</option>
+            <option value="league">league</option>
+            <option value="moon">moon</option>
+            <option value="night">night</option>
+            <option value="serif">serif</option>
+            <option value="simple">simple</option>
+            <option value="sky">sky</option>
+            <option value="solarized">solarize</option>
+            <option value="white">white</option>
+          </select>
+        </p>
+        <p>
+          <label for="reveal_code_style"><%= l(:reveal_dlg_codestyle) %></label>
+          <select name="reveal_code_style" id="reveal_code_style" data-default="default">
+            <option value="agate">Agate</option>
+            <option value="androidstudio">Android Studio</option>
+            <option value="arduino-light">Arduino light</option>
+            <option value="atom-one-dark">Atom one dark</option>
+            <option value="atom-one-light">Atom one light</option>
+            <option value="dark">Dark</option>
+            <option value="default">Default</option>
+            <option value="foundation">Foundation</option>
+            <option value="github-gist">GitHub Gist</option>
+            <option value="google-code">Google code</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="idea">Intellij Idea</option>
+            <option value="monokai">Monokai</option>
+            <option value="obsidian">Obsidian</option>
+            <option value="ocean">Ocean</option>
+            <option value="purebasic">PureBASIC</option>
+            <option value="qtcreator_dark">Qt Creator dark</option>
+            <option value="qtcreator_light">Qt Creator light</option>
+            <option value="rainbow">Rainbox</option>
+            <option value="solarized-dark">Solarized dark</option>
+            <option value="solarized-light">Solarized light</option>
+            <option value="sunburst">Sunburst</option>
+            <option value="vs">Visual Studio</option>
+            <option value="vs2015">Visual Studio 2015</option>
+            <option value="xcode">XCode</option>
+          </select>
+        </p>
+      </div>
+    </fieldset>
+    <fieldset id="reveal_tab_general">
+      <div class="tabular">
+        <p>
+          <label for="reveal_transition"><%= l(:reveal_dlg_transition) %></label>
+          <select name="reveal_transition" id="reveal_transition" data-default="slide">
+            <option value="none"><%= l(:reveal_dlg_transition_none) %></option>
+            <option value="fade"><%= l(:reveal_dlg_transition_fade) %></option>
+            <option value="slide"><%= l(:reveal_dlg_transition_slide) %></option>
+            <option value="convex"><%= l(:reveal_dlg_transition_convex) %></option>
+            <option value="concave"><%= l(:reveal_dlg_transition_concave) %></option>
+            <option value="zoom"><%= l(:reveal_dlg_transition_zoom) %></option>
+          </select>
+        </p>
+        <p>
+          <label for="reveal_speed"><%= l(:reveal_dlg_speed) %></label>
+          <select name="reveal_speed" id="reveal_speed" data-default="default">
+            <option value="slow">slow</option>
+            <option value="default">default</option>
+            <option value="fast">fast</option>
+          </select>
+        </p>
+      </div>
+    </fieldset>
+    <fieldset id="reveal_tab_background">
+      <div class="tabular">
+        <p>
+          <label for="reveal_background_color"><%= l(:reveal_dlg_backcolor) %></label>
+          <input type="text" name="reveal_background_color" id="reveal_background_color"/>
+        </p>
+        <p>
+          <label for="reveal_background_image"><%= l(:reveal_dlg_backimage) %></label>
+          <input type="text" name="reveal_background_image" id="reveal_background_image" size="32"/>
+        </p>
+        <p>
+          <label for="reveal_background_size"><%= l(:reveal_dlg_backimage_size) %></label>
+          <input type="text" name="reveal_background_size" id="reveal_background_size" data-default="cover" size="10" maxlength="10" data-requires="reveal_background_image"/>
+        </p>
+        <p>
+          <label for="reveal_background_repeat"><%= l(:reveal_dlg_backimage_repeat) %></label>
+          <select name="reveal_background_repeat" id="reveal_background_repeat" data-default="no-repeat" data-requires="reveal_background_image">
+            <option value="no-repeat">no-repeat</option>
+            <option value="repeat-x">repeat-x</option>
+            <option value="repeat-y">repeat-y</option>
+            <option value="repeat">repeat</option>
+          </select>
+        </p>
+        <p>
+          <label for="reveal_background_position"><%= l(:reveal_dlg_backimage_position) %></label>
+          <input type="text" name="reveal_background_position" id="reveal_background_position" data-default="center" data-requires="reveal_background_image"/>
+        </p>
+        <p>
+          <label for="reveal_background_transition"><%= l(:reveal_dlg_backtransition) %></label>
+          <select name="reveal_background_transition" id="reveal_background_transition" data-default="fade" data-requires="reveal_background_image">
+            <option value="none"><%= l(:reveal_dlg_transition_none) %></option>
+            <option value="fade"><%= l(:reveal_dlg_transition_fade) %></option>
+            <option value="slide"><%= l(:reveal_dlg_transition_slide) %></option>
+            <option value="convex"><%= l(:reveal_dlg_transition_convex) %></option>
+            <option value="concave"><%= l(:reveal_dlg_transition_concave) %></option>
+            <option value="zoom"><%= l(:reveal_dlg_transition_zoom) %></option>
+          </select>
+        </p>
+      </div>
+    </fieldset>
+    <fieldset id="reveal_tab_parallax">
+      <div class="tabular">
+        <p>
+          <label for="reveal_parallax_image"><%= l(:reveal_dlg_parallax_backimage) %></label>
+          <input type="text" name="reveal_parallax_image" id="reveal_parallax_image" size="32"/>
+        </p>
+        <p>
+          <label for="reveal_parallax_image_width"><%= l(:reveal_dlg_parallax_imgwidth) %></label>
+          <input type="text" class="noparam digits" name="reveal_parallax_image_width" id="reveal_parallax_image_width" class="digits" size="5" data-requires="reveal_parallax_image"/>
+          <label for="reveal_parallax_image_height" class="inline"><%= l(:reveal_dlg_parallax_imgheight) %></label>
+          <input type="text" class="noparam digits" name="reveal_parallax_image_height" id="reveal_parallax_image_height" class="digits" size="5" data-requires="reveal_parallax_image"/>
+        </p>
+      </div>
+    </fieldset>
+    <div id="reveal_validate_msg" class="alert-box"></div>
+  </form>
+</div>
