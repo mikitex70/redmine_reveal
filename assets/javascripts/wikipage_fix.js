@@ -11,7 +11,7 @@ $(function() {
       .append($('<a>').attr('target', '_blank')
                       .attr('href', url)
                       .addClass('icon icon-test')
-                      .text('Presentation'));
+                      .text(RMReveal.strings['reveal_presentation_start']));
   }
   
   $("section.slide[data-background-image]").each(function(index, elem) {
