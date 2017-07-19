@@ -10,28 +10,25 @@ class PresentationViewListener < Redmine::Hook::ViewListener
     # fragment after the jstoolbar-textile is loaded, which pathes the jsToolBar
     # object.
     def view_layouts_base_html_head(context={})
-        o = ''
+        lang = current_language.to_s.downcase
+        o    = ''
         
-        if editable?(context) or has_slides?(context)
-            if editable?(context)
-                lang = current_language.to_s.downcase
-                o << stylesheet_link_tag('spectrum.css'             , :plugin => 'redmine_reveal', :media => 'screen')
-                o << javascript_include_tag('spectrum.js'           , :plugin => 'redmine_reveal')
-                o << javascript_include_tag("i18n/jquery.spectrum-#{lang}.js", :plugin => 'redmine_reveal')
-                o << javascript_include_tag('jquery.validate.min.js', :plugin => 'redmine_reveal')
-                o << javascript_include_tag("localization/messages_#{lang}.min.js", :plugin => 'redmine_reveal')
-                o << javascript_include_tag('reveal_jstoolbar.js'   , :plugin => 'redmine_reveal')
-            end
+        if editable?(context)
+            o << stylesheet_link_tag('spectrum.css'             , :plugin => 'redmine_reveal', :media => 'screen')
+            o << javascript_include_tag('spectrum.js'           , :plugin => 'redmine_reveal')
+            o << javascript_include_tag("i18n/jquery.spectrum-#{lang}.js", :plugin => 'redmine_reveal')
+            o << javascript_include_tag('jquery.validate.min.js', :plugin => 'redmine_reveal')
+            o << javascript_include_tag("localization/messages_#{lang}.min.js", :plugin => 'redmine_reveal')
+            o << javascript_include_tag('reveal_jstoolbar.js'   , :plugin => 'redmine_reveal')
+        end
         
+        if has_slides?(context)
             o << javascript_include_tag('lang/reveal_jstoolbar-en.js', :plugin => 'redmine_reveal')
             o << javascript_include_tag("lang/reveal_jstoolbar-#{lang}.js", :plugin => 'redmine_reveal') if lang_supported? lang
-        
-            if has_slides?(context)
-                o << stylesheet_link_tag('presentation.css'  , :plugin => 'redmine_reveal', :media => 'all')
-                o << javascript_include_tag('wikipage_fix.js', :plugin => 'redmine_reveal')
-            end
+            o << stylesheet_link_tag('presentation.css'  , :plugin => 'redmine_reveal', :media => 'all')
+            o << javascript_include_tag('wikipage_fix.js', :plugin => 'redmine_reveal')
         end
-    
+        
         o
     end
 
@@ -42,7 +39,7 @@ class PresentationViewListener < Redmine::Hook::ViewListener
     end
     
     def has_slides?(context)
-        true 
+        true # TODO: how to check if a "slide" macro is in the wiki page body?
     end
 
     def lang_supported? lang
