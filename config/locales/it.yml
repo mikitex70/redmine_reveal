@@ -23,4 +23,11 @@ it:
     reveal_dlg_transition_convex : "convex"
     reveal_dlg_transition_concave: "concave"
     reveal_dlg_transition_zoom   : "zoom"
+    reveal_dlg_speed_slow        : "slow"
+    reveal_dlg_speed_default     : "default"
+    reveal_dlg_speed_fast        : "fast"
+    reveal_dlg_repeat_norepeat   : "no-repeat"
+    reveal_dlg_repeat_repeatx    : "repeat-x"
+    reveal_dlg_repeat_repeaty    : "repeat-y"
+    reveal_dlg_repeat_both       : "repeat"
     
