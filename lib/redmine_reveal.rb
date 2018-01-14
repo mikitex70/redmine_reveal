@@ -6,6 +6,7 @@ require 'redmine_reveal/patches/wiki_content_patch'
 
 # Helpers
 require 'redmine_reveal/helpers/textile_helper'
+require 'redmine_reveal/helpers/markdown_helper'
 
 # Hooks
 require 'redmine_reveal/hooks/view_hooks'

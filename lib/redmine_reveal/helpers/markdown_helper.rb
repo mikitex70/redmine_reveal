@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'redmine'
 
-module Redmine::WikiFormatting::Textile::Helper
+module Redmine::WikiFormatting::Markdown::Helper
     def heads_for_wiki_formatter_with_reveal
         heads_for_wiki_formatter_without_reveal
         unless @heads_for_wiki_formatter_with_reveal_included
