@@ -1,0 +1,12 @@
+RMReveal = RMReveal || {};
+RMReveal.strings['reveal_presentation_start' ] = '播放投影片';
+RMReveal.strings['reveal_btn_ok'             ] = '插入巨集';
+RMReveal.strings['reveal_btn_cancel'         ] = '取消';
+RMReveal.strings['reveal_slide_btntitle'     ] = '投影片';
+RMReveal.strings['reveal_slide_dlgtitle'     ] = '投影片設定';
+RMReveal.strings['reveal_subslide_btntitle'  ] = '子投影片';
+RMReveal.strings['reveal_subslide_dlgtitle'  ] = '子投影片設定';
+RMReveal.strings['reveal_slidesetup_btntitle'] = '投影片設定';
+RMReveal.strings['reveal_slidesetup_dlgtitle'] = '整體設定';
+RMReveal.strings['reveal_fragment_btntitle'  ] = '應用動態效果到文字';
+RMReveal.strings['reveal_backsize_validation'] = "設定數值給 'px', 'mm', 'cm' 或 'in', 或其一  'auto', 'cover', 'contain'"
