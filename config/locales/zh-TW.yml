@@ -19,7 +19,7 @@ zh-TW:
     reveal_dlg_parallax_imgheight: "高度"
     reveal_dlg_transition_none   : "無"
     reveal_dlg_transition_fade   : "淡化"
-    reveal_dlg_transition_slide  : "滑入"
+    reveal_dlg_transition_slide  : "滑動"
     reveal_dlg_transition_convex : "convex"
     reveal_dlg_transition_concave: "concave"
     reveal_dlg_transition_zoom   : "放大"
