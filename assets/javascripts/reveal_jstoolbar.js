@@ -27,7 +27,7 @@ RMReveal.strings = {};
             var re = new RegExp(regexp);
             return this.optional(element) || re.test(value);
         },
-        "Please check your input."
+        RMReveal.strings['reveal_invalid_input']
     );
     
     /**

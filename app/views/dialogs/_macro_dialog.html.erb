@@ -72,9 +72,9 @@
         <p>
           <label for="reveal_speed"><%= l(:reveal_dlg_speed) %></label>
           <select name="reveal_speed" id="reveal_speed" data-default="default">
-            <option value="slow">slow</option>
-            <option value="default">default</option>
-            <option value="fast">fast</option>
+            <option value="slow"><%= l(:reveal_dlg_speed_slow) %></option>
+            <option value="default"><%= l(:reveal_dlg_speed_default) %></option>
+            <option value="fast"><%= l(:reveal_dlg_speed_fast) %></option>
           </select>
         </p>
       </div>
@@ -96,10 +96,10 @@
         <p>
           <label for="reveal_background_repeat"><%= l(:reveal_dlg_backimage_repeat) %></label>
           <select name="reveal_background_repeat" id="reveal_background_repeat" data-default="no-repeat" data-requires="reveal_background_image">
-            <option value="no-repeat">no-repeat</option>
-            <option value="repeat-x">repeat-x</option>
-            <option value="repeat-y">repeat-y</option>
-            <option value="repeat">repeat</option>
+            <option value="no-repeat"><%= l(:reveal_dlg_repeat_norepeat) %></option>
+            <option value="repeat-x"><%= l(:reveal_dlg_repeat_repeatx) %></option>
+            <option value="repeat-y"><%= l(:repeat_dlg_repeat_repeaty) %></option>
+            <option value="repeat"><%= l(:repeat_dlg_repeat_both) %></option>
           </select>
         </p>
         <p>
