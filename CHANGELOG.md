@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.1 (2019-02-09)
+
+### Fix
+
+* Fixed error with the english language (fixes #2, #6) [Michele Tessaro]
+
+
 ## v0.2.0 (2018-02-24)
 
 ### New
@@ -11,6 +18,10 @@
   Added in the markdown editor the buttons for inserting macros.
 
 * Added some missing string translations. [Michele Tessaro]
+
+### Changes
+
+* Updated change log. [Michele Tessaro]
 
 ### Fix
 
