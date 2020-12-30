@@ -1,5 +1,13 @@
 # Changelog
 
+
+## v0.3.0 (2020-12-30)
+
+### Fix
+
+* Fixed working on Redmine 4.1. [Michele Tessaro]
+
+
 ## v0.2.1 (2019-02-09)
 
 ### Fix
