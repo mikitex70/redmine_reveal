@@ -3,7 +3,7 @@ Redmine::Plugin.register :redmine_reveal do
   name 'Redmine slideshow plugin'
   author 'Michele Tessaro'
   description 'Wiki macro plugin that transform wiki pages to slides'
-  version '0.2.1'
+  version '0.3.0'
   url 'https://github.com/mikitex70/redmine_reveal'
   author_url 'https://github.com/mikitex70'
   
