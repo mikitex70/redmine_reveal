@@ -7,6 +7,16 @@
         el.attr("class", fixedClasses);
     });
     
+    // Fix for fades on lists: move classes from span to li tag
+    $("li span.fade-down,li span.fade-up,li span.fade-left,li span.fade-right,li span.fade-out,li span.fade-in").each(function() {
+        var el = $(this);
+        var fadeClass = $.grep(el.attr("class").split(" "), function(cls) {
+            return cls.startsWith("fade-");
+        })[0];
+        el.parent().addClass("fragment").addClass(fadeClass);
+        el.removeClass("fragment").removeClass(fadeClass);
+    });
+    
     function moveSlideDefinitions() {
         var lastSection = null,
             lastSlide   = null;
@@ -26,4 +36,11 @@
     }
 
     moveSlideDefinitions();
+    /*$.hook("addClass");
+    $.hook("removeClass");
+    $("div:has(span.fragment)".bind("onafteraddClass" function(e) {
+        console.log("class added", e);
+    }).bind("onafterremoveClass" function(e) {
+        console.log("class removed", e);
+    });*/
 })();
