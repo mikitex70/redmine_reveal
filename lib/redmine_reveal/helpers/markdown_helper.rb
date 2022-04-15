@@ -28,7 +28,7 @@ if Rails::VERSION::STRING < '5.0.0'
     end
 else
     # Rails 5, use new new `prepend` method
-    module Redmine::WikiFormatting::Markdown::Helper
+    module RedmineReveal_markdown
         def heads_for_wiki_formatter
             super
             unless @heads_for_wiki_formatter_with_reveal_included
@@ -43,7 +43,7 @@ else
         end
     end
     
-    module Redmine::WikiFormatting::Textile::Helper
-        prepend RedmineReveal_textile
+    module Redmine::WikiFormatting::Markdown::Helper
+        prepend RedmineReveal_markdown
     end
 end
