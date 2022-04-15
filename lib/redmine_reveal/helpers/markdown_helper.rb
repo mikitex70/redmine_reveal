@@ -43,7 +43,7 @@ else
         end
     end
     
-    module Redmine::WikiFormatting::Textile::Helper
+    module Redmine::WikiFormatting::Markdown::Helper
         prepend RedmineReveal_markdown
     end
 end
