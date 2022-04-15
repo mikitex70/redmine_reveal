@@ -1,7 +1,18 @@
 # Changelog
 
 
+## v0.3.1 (2022-04-15)
+
+### Fix
+
+* Fixed macro button in markdown editor (fixes #3) [Michele Tessaro]
+
+
 ## v0.3.0 (2020-12-30)
+
+### Changes
+
+* Updated changelog for the new release. [Michele Tessaro]
 
 ### Fix
 
