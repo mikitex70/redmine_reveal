@@ -23,13 +23,14 @@ background_repeat=no-repeat: background image repetition (no-repeat, repeat-x, r
 background_transition      : background transition (none, fade, slide, convex, concave, zoom)
 parallax_image             : image for the background parallax effect (attachment or url)
 parallax_image_size        : parallax image size, in the format "WIDTHpx HEIGHTpx"; mandatory if parallax_image is present
+slide_number               : type of slide numeration (h.v, h/c, c, c/t)
 EOF
             macro :slideSetup do |obj, args|
                 return "«Please save content first»" unless obj
                 return "" unless obj.is_a?(WikiContent)
                 
                 args, options = extract_macro_options(args, :transition, :speed, :theme, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition,
-                :code_style, :parallax_image, :parallax_image_size)
+                :code_style, :parallax_image, :parallax_image_size, :slide_number)
                 
                 obj.slide_options.theme                 = RedmineReveal::Macros.getTheme(obj, options[:theme])
                 obj.slide_options.code_style            = RedmineReveal::Macros.getCodeStyle(obj, options[:code_style])
@@ -43,6 +44,7 @@ EOF
                 obj.slide_options.background_transition = RedmineReveal::Macros.getBackgroundTransition(obj, options[:background_transition])
                 obj.slide_options.parallax_image        = RedmineReveal::Macros.getParallaxImage(obj, options[:parallax_image])
                 obj.slide_options.parallax_image_size   = RedmineReveal::Macros.getParallaxImageSize(obj, options[:parallax_image_size])
+                obj.slide_options.slide_number          = RedmineReveal::Macros.getSlideNumber(obj, options[:slide_number])
                 
                 ""
             end
@@ -68,6 +70,7 @@ background_size=cover      : background image size; length, percentage or one of
 background_position=center :
 background_repeat=no-repeat: background image repetition (no-repeat, repeat-x, repeat-y, repeat)
 background_transition      : background transition (none, fade, slide, convex, concave, zoom)
+animate                    : true to enable auto-animation between slides
 
 After using this macro you will see a link named "Presentation" in the wiki action bar.
 
@@ -82,7 +85,7 @@ EOF
                 return "«Please save content first»" unless obj
                 return "" unless obj.is_a?(WikiContent)
                 
-                args, options = extract_macro_options(args, :transition, :speed, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition)
+                args, options = extract_macro_options(args, :transition, :speed, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition, :animate, :id)
                 
                 "<section class='slide #{obj.slide_options.theme}' #{RedmineReveal::Macros.section_opts(obj, options)}>".html_safe +
                     textilizable(text.gsub(/\}\\\}/, "}}"), :object => obj ) +
@@ -114,6 +117,7 @@ background_size=cover      : background image size; length, percentage or one of
 background_position=center :
 background_repeat=no-repeat: background image repetition (no-repeat, repeat-x, repeat-y, repeat)
 background_transition      : background transition (none, fade, slide, convex, concave, zoom)
+animate                    : true to enable auto-animation between slides
 
 In the body of the slide can be used other macros, but they must be closed with }\}. For example:
 
@@ -126,7 +130,7 @@ EOF
                 return "«Please save content first»" unless obj
                 return "" unless obj.is_a?(WikiContent)
                 
-                args, options = extract_macro_options(args, :transition, :speed, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition)
+                args, options = extract_macro_options(args, :transition, :speed, :background_color, :background_image, :background_size, :background_position, :background_repeat, :background_transition, :animate, :id)
                 
                 "<section class='subslide #{obj.slide_options.theme}' #{RedmineReveal::Macros.section_opts(obj, options)}>".html_safe +
                     textilizable(text.gsub(/\}\\\}/, "}}"), :object => obj) +
@@ -212,13 +216,15 @@ EOF
                 
                 opts  = "data-transition=\"#{transition}\" data-transition-speed=\"#{speed}\""
                 opts += " data-background-color=\"#{background_color}\"" unless background_color.blank?
+                opts += " data-auto-animate" if options[:animate]
+                opts += " data-background-transition=\"#{background_transition}\"" unless background_transition.blank?
+                opts += " id=\"#{options[:id]}\"" if options[:id]
                 
                 unless background_image.blank?
                     opts += " data-background-image=\"#{background_image}\""
                     opts += " data-background-size=\"#{background_size}\""             unless background_size.blank?
                     opts += " data-background-position=\"#{background_position}\""     unless background_position.blank?
                     opts += " data-background-repeat=\"#{background_repeat}\""         unless background_repeat.blank?
-                    opts += " data-background-transition=\"#{background_transition}\"" unless background_transition.blank?
                 end
                 
                 opts
@@ -355,6 +361,15 @@ EOF
                 return default if value.blank?
                 
                 value
+            end
+            
+            def getSlideNumber(obj, value)
+                default = obj.slide_options.slide_number
+                
+                return value   unless value.blank?
+                return default unless default.blank?
+                
+                'h.c'
             end
         end
     end

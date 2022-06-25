@@ -54,6 +54,15 @@
             <option value="xcode">XCode</option>
           </select>
         </p>
+        <p>
+          <label for="reveal_slide_number"><%= l(:reveal_dlg_slide_number) %></label>
+          <select name="reveal_slide_number" id="reveal_slide_number" data-default="h.v">
+            <option value="h.v"><%= l(:reveal_dlg_slide_number_hdotv) %></option>
+            <option value="h/v"><%= l(:reveal_dlg_slide_number_hslashv) %></option>
+            <option value="c"><%= l(:reveal_dlg_slide_number_c) %></option>
+            <option value="c/t"><%= l(:reveal_dlg_slide_number_cslasht) %></option>
+          </select>
+        </p>
       </div>
     </fieldset>
     <fieldset id="reveal_tab_general">
@@ -77,13 +86,17 @@
             <option value="fast"><%= l(:reveal_dlg_speed_fast) %></option>
           </select>
         </p>
+        <p>
+          <label for="reveal_auto_animate"><%= l(:reveal_dlg_auto_animate) %></label>
+          <input type="checkbox" id="reveal_animate" value="true"/>
+        </p>
       </div>
     </fieldset>
     <fieldset id="reveal_tab_background">
       <div class="tabular">
         <p>
           <label for="reveal_background_color"><%= l(:reveal_dlg_backcolor) %></label>
-          <input type="text" name="reveal_background_color" id="reveal_background_color"/>
+          <input type="text" name="reveal_background_color" id="reveal_background_color" class="color"/>
         </p>
         <p>
           <label for="reveal_background_image"><%= l(:reveal_dlg_backimage) %></label>
@@ -98,8 +111,8 @@
           <select name="reveal_background_repeat" id="reveal_background_repeat" data-default="no-repeat" data-requires="reveal_background_image">
             <option value="no-repeat"><%= l(:reveal_dlg_repeat_norepeat) %></option>
             <option value="repeat-x"><%= l(:reveal_dlg_repeat_repeatx) %></option>
-            <option value="repeat-y"><%= l(:repeat_dlg_repeat_repeaty) %></option>
-            <option value="repeat"><%= l(:repeat_dlg_repeat_both) %></option>
+            <option value="repeat-y"><%= l(:reveal_dlg_repeat_repeaty) %></option>
+            <option value="repeat"><%= l(:reveal_dlg_repeat_both) %></option>
           </select>
         </p>
         <p>
@@ -108,7 +121,7 @@
         </p>
         <p>
           <label for="reveal_background_transition"><%= l(:reveal_dlg_backtransition) %></label>
-          <select name="reveal_background_transition" id="reveal_background_transition" data-default="fade" data-requires="reveal_background_image">
+          <select name="reveal_background_transition" id="reveal_background_transition" data-default="fade">
             <option value="none"><%= l(:reveal_dlg_transition_none) %></option>
             <option value="fade"><%= l(:reveal_dlg_transition_fade) %></option>
             <option value="slide"><%= l(:reveal_dlg_transition_slide) %></option>

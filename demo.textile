@@ -1,0 +1,303 @@
+h1. Slide demo
+
+{{slideSetup(slide_number=c/t)}}
+
+{{slide
+!{height: 180px; margin: 0 auto 4rem auto; background: transparent;}https://static.slid.es/reveal/logo-v1/reveal-white-text.svg(reveal.js logo)!:https://revealjs.com
+
+h3. The HTML Presentation Framework
+
+p{font-size: small}. Created by "Hakim El Hattab":http://hakim.se and "contributors":https://github.com/hakimel/reveal.js/graphs/contributors
+}}
+
+{{slide
+h2. Hello There
+
+p. reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+}}
+
+{{slide
+
+}}
+
+{{subSlide
+h2. Vertical Slides
+
+p. Slides can be nested inside of each other.
+
+p. Use the _space_ key to navigate through all slides.
+
+p. !{background:#ffffff10;with:128px;height:238px}https://static.slid.es/reveal/arrow.png(Down arrow)!:#/2/1
+}}
+
+{{subSlide
+h2. Basement Level 1
+
+p. Nested slides are useful for adding additional detail underneath a high level horizontal slide.
+}}
+
+{{subSlide
+h2. Basement Level 2
+
+p. !{background:#ffffff10;transform:rotate(180deg);with:128px;height:238px}https://static.slid.es/reveal/arrow.png(Up arrow)!:#/2
+
+p{font-size: small}. Image not rotated, @transform@ _css rule ignored by Redmine._
+}}
+
+{{slide
+h2. Slides
+
+p. Not a coder? Not a problem, use textile o markdown wiki syntax.
+}}
+
+{{slide(animate=true)
+h2. Pretty Code
+
+<pre><code class="hljs" data-trim data-line-numbers>
+import React, { useState } from 'react';
+
+function Example() {
+    const [count, setCount] = useState(0);
+
+    return (
+	...
+    );
+}
+</code></pre>
+
+p. Code syntax highlighting courtesy of "highlight.js":https://highlightjs.org/usage/.
+
+p{font-size: small}. @data-trim@ _and_ @data-line-numbers@ _ignored by Redmine_
+}}
+
+{{slide(animate=true)
+h2. With animations
+
+<pre><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
+<script type="text/template">
+    import React, { useState } from 'react';
+
+    function Example() {
+        const [count, setCount] = useState(0);
+
+        return (
+        <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+            Click me
+            </button>
+        </div>
+        );
+    }
+
+    function SecondExample() {
+        const [count, setCount] = useState(0);
+
+        return (
+        <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+            Click me
+            </button>
+        </div>
+        );
+    }
+</script>
+</code></pre>
+
+p{font-size: small}. @data-trim@ _and_ @data-line-numbers@ _ignored by Redmine_
+}}
+
+{{slide
+h2. Point of View
+
+p. Press *ESC* to enter the slide overview.
+
+p. Hold down the *alt* key (*ctrl* in Linux) and click on any element to zoom towards it using "zoom.js":http://lab.hakim.se/zoom-js. Click again to zoom back out.
+
+p. (NOTE: Use ctrl + click in Linux.)
+}}
+
+{{slide(animate=true)
+h2. Auto-Animate
+
+p. Automatically animate matching elements across slides with "Auto-Animate":https://revealjs.com/auto-animate/.
+
+<div class="r-hstack justify-center">
+<div data-id="box1" style="background:#999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+<div data-id="box2" style="background:#999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+<div data-id="box3" style="background:#999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>					
+</div>
+
+p{font-size: small}. @data-auto-animate-easing@ not yet supported.
+}}
+
+{{slide(animate=true)
+<div class="r-hstack justify-center">
+<div data-id="box1" style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
+<div data-id="box2" style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
+<div data-id="box3" style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>					
+</div>
+
+h2{margin-top: 20px}. Auto-Animate
+
+p{font-size: small}. @data-auto-animate-easing@ not yet supported.
+}}
+
+{{slide(animate=true)
+<div class="r-stack">
+<div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
+<div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
+<div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>					
+</div>
+
+h2{margin-top: 20px}. Auto-Animate
+
+p{font-size: small}. @data-auto-animate-easing@ not yet supported.
+}}
+
+
+{{slide
+p. Add the <code>r-fit-text</code> class to auto-size text
+
+h2(r-fit-text). FIT TEXT
+}}
+
+{{slide
+}}
+
+{{subSlide
+h2. Fragments
+
+p. Hit the next arrow...
+
+p(fragment). ... to step through ...
+
+p. %(fragment)... a% %(fragment)fragmented% %(fragment)slide%
+}}
+
+{{speakerNote
+This slide has fragments which are also stepped through in the notes window.
+}}
+
+{{subSlide
+h2. Fragment Styles
+
+p. There's different types of fragments, like:
+
+p(fragment grow). grow
+
+p(fragment shrink). shrink
+
+p(fragment fade-out). fade-out
+
+p. %(fragment fade-right)fade-right,% %(fragment fade-up)up,% %(fragment fade-down)down,% %(fragment fade-left)left%
+
+p(fragment fade-in-then-out). fade-in-then-out
+
+p(fragment fade-in-then-semi-out). fade-in-then-semi-out
+
+p. Highlight %(fragment highlight-red)red% %(fragment highlight-blue)blue% %(fragment highlight-green)green%
+}}
+
+{{slide(id=transitions)
+h2. Transition Styles
+
+p. You can select from different transitions, like: [[?transition=none#/transitions|None]] [[?transition=fade#/transitions|Fade]] [[?transition=slide#/transitions|Slide]] [[?transition=convex#/transitions|Convex]] [[?transition=concave#/transitions|Concave]] [[?transition=zoom#/transitions|Zoom]]
+
+p{font-size: small}. dynamic transition on hyperlinks not working, queries in hyperlinks not supported by Redmine.
+}}
+
+
+{{slide(id=themes)
+h2. Themes
+
+p. reveal.js comes with a few themes built in: 
+}}
+
+
+{{slide
+
+}}
+{{subSlide(background_color=#dddddd)
+h2. Slide Backgrounds
+
+p. Set @background_color=#dddddd@ (or use the macro dialog) on a slide to change the background color. All CSS color formats are supported.
+
+!(r-frame){background: rgba(255,255,255,0.1);width=178px;height=238ppx}https://static.slid.es/reveal/arrow.png!:#
+}}
+
+{{subSlide
+h2. Gradient Backgrounds
+
+p. _Not yet implemented._
+}}
+
+{{subSlide(background_image=https://static.slid.es/reveal/image-placeholder.png)
+h2. Image Backgrounds
+}}
+
+{{subSlide(background_image=https://static.slid.es/reveal/image-placeholder.png,background_size=100px,background_repeat=repeat)
+h2. Tiled Backgrounds
+}}
+
+{{subSlide(background_color=#000000)
+h2. Video Backgrounds
+
+p. _Not yet implemented._
+}}
+
+{{subSlide(background_image=http://i.giphy.com/90F8aUepslB84.gif)
+h2. ... and GIFs!
+}}
+
+{{slide(background_color=#4d7e65,background_transition=zoom)
+h2. Background Transitions
+
+p. Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+}}
+
+
+{{slide(background_color=#b5533c,background_transition=zoom)
+h2. Background Transitions
+
+p. You can override background transitions per-slide.
+}}
+
+{{slide
+<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+h2. Iframe Backgrounds
+
+p. Since reveal.js runs on the web, you can easily embed other web content. Try interacting with the page in the background.
+</div>
+p. _Not yet implemented._
+}}
+
+{{slide
+h2. Intergalactic Interconnections
+
+p. You can link between slides internally [[#/2/3|like this]].
+
+p. _Not yet working, Redmine removes slashes after haashes in links._
+}}
+
+
+{{slide
+h2. Speaker View
+
+p. There's a "speaker view":https://revealjs.com/speaker-view/. It includes a timer, preview of the upcoming slide as well as your speaker notes.
+}}
+
+{{speakerNote
+Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+}}
+
+{{slide
+h2. Take a Moment
+
+p. Press @B@ or @.@ on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+}}
+
+{{slide
+h1. THE END
+}}

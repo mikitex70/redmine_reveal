@@ -20,6 +20,7 @@ module RedmineReveal
                     attr_accessor :parallax_image, :parallax_image_size
                     attr_accessor :background_color, :background_image, :background_size
                     attr_accessor :background_position, :background_repeat, :background_transition
+                    attr_accessor :slide_number
                     
                     def initialize
                         @theme                 = 'league'
@@ -34,6 +35,7 @@ module RedmineReveal
                         @background_transition = ''
                         @parallax_image        = ''
                         @parallax_image_size   = ''
+                        @slide_number          = 'h.c'
                     end
                 end
             end

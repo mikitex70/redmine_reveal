@@ -114,14 +114,19 @@ RMReveal.strings = {};
             var editor    = dlg.data("editor");
             var macroName = dlg.data("macro");
             // Extract field values as macro options
-            var options   = $("[id^='reveal_']:visible").map(function() {
+            var options   = $("input[id^='reveal_']:visible,select[id^='reveal_']:visible,input.color[id^='reveal_']").map(function() {
                 if($(this).hasClass("noparam"))
                     return;  // Field does not map to a parameter
-                    var optName = this.id.toString().substring("reveal_".length);
-                var value   = $(this).val();
+                var optName = this.id.toString().substring("reveal_".length);
                 
-                if(value != "" && value != $(this).data("default"))
-                    return optName+"="+value;
+                if($(this).attr('type') === 'checkbox') {
+                    return optName+"="+$(this).prop('checked')
+                } else {
+                    var value = $(this).val();
+                    
+                    if(value !== "" && value != $(this).data("default"))
+                        return optName+"="+value;
+                }
                 
                 return null;
             }).get();
@@ -182,8 +187,21 @@ RMReveal.strings = {};
                 var params = dlg.data("params");
                 
                 if(params) {
-                    for(key in params)
-                        $("#reveal_"+key).val(params[key]);
+                    for(key in params) {
+                        var field = $("#reveal_"+key);
+                        
+                        if(field.attr('type') === 'checkbox')
+                            field.prop('checked', params[key]);
+                        else if(field.length) { // field found
+                            field.val(params[key]);
+                            
+                            if(field.attr('id').match(/_color$/)) // color field
+                                field.spectrum('set', params[key]);
+                        } else {
+                            // field not found, maybe a radio, try by name
+                            $("input[name=reveal_"+key+"][value="+params[key]+"]").prop('checked', true);
+                        }
+                    }
                     
                     var m = /(\d+)px (\d+)px/.exec(params["parallax_image_size"]);
                     
