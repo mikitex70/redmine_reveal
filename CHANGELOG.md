@@ -1,7 +1,20 @@
 # Changelog
 
 
+## v0.4.0 (2022-06-26)
+
+### New
+
+* Bump revealjs to 4.3.1. [Michele Tessaro]
+
+* Working on Redmine 5. [Michele Tessaro]
+
+
 ## v0.3.1 (2022-04-15)
+
+### Changes
+
+* Updated changelog. [Michele Tessaro]
 
 ### Fix
 
