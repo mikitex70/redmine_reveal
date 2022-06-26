@@ -1,19 +1,19 @@
 # encoding: utf-8
 
 # Patches
-require 'redmine_reveal/patches/controller_patch'
-require 'redmine_reveal/patches/wiki_content_patch'
+require File.expand_path('../redmine_reveal/patches/controller_patch', __FILE__)
+require File.expand_path('../redmine_reveal/patches/wiki_content_patch', __FILE__)
 
 # Helpers
-require 'redmine_reveal/helpers/textile_helper'
-require 'redmine_reveal/helpers/markdown_helper'
+require File.expand_path('../redmine_reveal/helpers/textile_helper', __FILE__)
+require File.expand_path('../redmine_reveal/helpers/markdown_helper', __FILE__)
 
 # Hooks
-require 'redmine_reveal/hooks/view_hooks'
-require 'redmine_reveal/hooks/macro_dialog'
+require File.expand_path('../redmine_reveal/hooks/view_hooks', __FILE__)
+require File.expand_path('../redmine_reveal/hooks/macro_dialog', __FILE__)
 
 # Macros
-require 'redmine_reveal/macros'
+require File.expand_path('../redmine_reveal/macros', __FILE__)
 
 
 module RedmineReveal

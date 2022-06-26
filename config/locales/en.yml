@@ -30,4 +30,10 @@ en:
     reveal_dlg_repeat_repeatx    : "repeat-x"
     reveal_dlg_repeat_repeaty    : "repeat-y"
     reveal_dlg_repeat_both       : "repeat"
+    reveal_dlg_auto_animate      : "Slide animation"
+    reveal_dlg_slide_number      : "Slide numeration"
+    reveal_dlg_slide_number_hdotv: "horizontal . vertical"
+    reveal_dlg_slide_number_hslashv: "horizontal / vertical"
+    reveal_dlg_slide_number_c    : "global (horizontal and vertical)"
+    reveal_dlg_slide_number_cslasht: "global / total slide number"
     

@@ -26,9 +26,12 @@
         </div>
     </div>
 
-    <%= javascript_include_tag "fixStructure.js", :plugin => "redmine_reveal" %>
-    <%= javascript_include_tag "head.min.js"    , :plugin => "redmine_reveal" %>
-    <%= javascript_include_tag "reveal.js"      , :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "fixStructure.js"              , :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "head.min.js"                  , :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "reveal.js"                    , :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "plugin/zoom/zoom.js"          , :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "plugin/notes/notes.js"        , :plugin => "redmine_reveal" %>
+    <%= javascript_include_tag "plugin/highlight/highlight.js", :plugin => "redmine_reveal" %>
 
     <script>
         // More info https://github.com/hakimel/reveal.js#configuration
@@ -57,6 +60,7 @@
                 hideAddressBar: true,
                 previewLinks  : false,
                 previewLinks  : true,
+                slideNumber   : '<%= @content.slide_options.slide_number %>',
                 transition    : '<%= @content.slide_options.transition %>',
                 transitionSpeed: 'default',
                 backgroundTransition: 'fade',
@@ -65,23 +69,7 @@
                 parallaxBackgroundSize: '<%= @content.slide_options.parallax_image_size %>', //2100px 900px',
                 parallaxBackgroundHorizontal: null,
                 parallaxBackgroundVertical: null,
-                
-//                 width: 960,
-//                 height: 700,
-//                 minScale: 0.2,
-//                 maxScale: 1.5,
-
-                // More info https://github.com/hakimel/reveal.js#dependencies
-                dependencies: [
-//                             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-//                             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-//                             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        // Syntax highlight for <code> elements
-                        { src: '<%= "#{ActionController::Base.relative_url_root}/plugin_assets/redmine_reveal/javascripts/highlight.pack.js" %>', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                        // Zoom in and out with Alt+click
-                        { src: '<%= "#{ActionController::Base.relative_url_root}/plugin_assets/redmine_reveal/javascripts/plugin/zoom-js/zoom.js" %>', async: true },
-                        { src: '<%= "#{ActionController::Base.relative_url_root}/plugin_assets/redmine_reveal/javascripts/plugin/notes/notes.js" %>', async: true }
-                ]
+                plugins: [ RevealNotes, RevealZoom, RevealHighlight ]
         });
     </script>
   </body>

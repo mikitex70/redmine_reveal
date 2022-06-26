@@ -27,24 +27,29 @@ if Rails::VERSION::STRING < '5.0.0'
         alias_method :heads_for_wiki_formatter, :heads_for_wiki_formatter_with_reveal
     end
 else
-    # Rails 5, use new new `prepend` method
-    module RedmineReveal_textile
-        def heads_for_wiki_formatter
-            super
-            unless @heads_for_wiki_formatter_with_reveal_included
-                # This code is executed only once and inserts a javascript code
-                # that patches the jsToolBar adding the new buttons.
-                # After that, all editors in the page will get the new buttons.
-                content_for :header_tags do
-                    javascript_tag 'if(typeof(RMReveal) !== "undefined") RMReveal.initToolbar();'
-                end
-                @heads_for_wiki_formatter_with_reveal_included = true
+    module RedmineReveal
+        module Helpers
+            module TextileHelper
+                # Rails 5, use new new `prepend` method
+#                module RedmineReveal_textile
+                    def heads_for_wiki_formatter
+                        super
+                        unless @heads_for_wiki_formatter_with_reveal_included
+                            # This code is executed only once and inserts a javascript code
+                            # that patches the jsToolBar adding the new buttons.
+                            # After that, all editors in the page will get the new buttons.
+                            content_for :header_tags do
+                                javascript_tag 'if(typeof(RMReveal) !== "undefined") RMReveal.initToolbar();'
+                            end
+                            @heads_for_wiki_formatter_with_reveal_included = true
+                        end
+                    end
+ #               end
             end
         end
     end
-    
-    module Redmine::WikiFormatting::Textile::Helper
-        prepend RedmineReveal_textile
-    end
+                
+                module Redmine::WikiFormatting::Textile::Helper
+                    prepend RedmineReveal::Helpers::TextileHelper
+                end
 end
-

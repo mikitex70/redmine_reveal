@@ -1,6 +1,6 @@
 .reveal > .slides {
     font-size: 80%;
-    text-align: left;
+    /*text-align: left;*/
 }
 
 .slide > h2,
