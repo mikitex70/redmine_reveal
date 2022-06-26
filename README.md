@@ -7,7 +7,7 @@ Presentations are build around the excellent [revealjs](https://github.com/hakim
 
 ## Requirements
 
-- Requires v3.0.0+. Tested with Redmine v3.1.4, v3.2.4, v3.3.3, v3.4.7 and v4.1.1.
+- Requires v3.0.0+. Tested with Redmine v3.1.4, v3.2.4, v3.3.3, v3.4.7, v4.1.1 and v5.0.1.
 
 ## Installation
 
@@ -21,6 +21,8 @@ Presentations are build around the excellent [revealjs](https://github.com/hakim
 ## Usage
 
 There are five macros that can be used to transform wiki pages in presentations.
+
+For a quick tour look at file `demo.textile`: it is a porting in *textile* syntax of the [reveal.js demo](https://revealjs.com/).
 
 Some macros have a button on the editor toolbar; this buttons will open a dialog to insert the macro text in an easy way, helping to set the desired options.
 
