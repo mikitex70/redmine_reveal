@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel='shortcut icon' href='/plugin_assets/redmine_presentation/images/favicon.png' />
+    <%= favicon_link_tag 'favicon.png', :plugin => 'redmine_reveal' %>
 
     <%= stylesheet_link_tag "reveal.css",       :media => "all", :plugin => "redmine_reveal" %>
     <%= stylesheet_link_tag "theme/#{@content.slide_options.theme}.css", :media => "all", :plugin => "redmine_reveal", :id => "theme" %>

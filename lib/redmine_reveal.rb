@@ -2,6 +2,7 @@
 
 # Patches
 require_relative 'redmine_reveal/patches/controller_patch'
+require_relative 'redmine_reveal/patches/helper_patch'
 require_relative 'redmine_reveal/patches/wiki_content_patch'
 
 # Helpers
