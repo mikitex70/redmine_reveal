@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.4.1 (2024-01-17)
+
+### Changes
+
+* Added some more info on the plugin. [Michele Tessaro]
+* Some code refactor. [Takashi Kato]
+
+
 ## v0.4.0 (2022-06-26)
 
 ### New
@@ -8,6 +16,10 @@
 * Bump revealjs to 4.3.1. [Michele Tessaro]
 
 * Working on Redmine 5. [Michele Tessaro]
+
+### Changes
+
+* Updated changelog for the new release. [Michele Tessaro]
 
 
 ## v0.3.1 (2022-04-15)
