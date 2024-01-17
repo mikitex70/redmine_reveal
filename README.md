@@ -7,7 +7,7 @@ Presentations are build around the excellent [revealjs](https://github.com/hakim
 
 ## Requirements
 
-- Requires v3.0.0+. Tested with Redmine v3.1.4, v3.2.4, v3.3.3, v3.4.7, v4.1.1 and v5.0.1.
+- Requires v3.0.0+. Tested with Redmine v3.1.4, v3.2.4, v3.3.3, v3.4.7, v4.1.1, v5.0.5 and v5.1.1.
 
 ## Installation
 
